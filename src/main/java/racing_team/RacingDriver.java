@@ -19,10 +19,11 @@ public class RacingDriver {
     private Integer driverId;
 
     private String name;
-    private Integer age;
+    private String surname;
+    private String dateOfBirth;
     private String nationality;
-    private String outfitColor;
-    private Long salary;
+    private String sponsor;
+    private Integer salary;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "carId")
