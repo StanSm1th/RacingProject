@@ -27,7 +27,7 @@ public class RacingDriver {
     private Integer salary;
 
     @JoinColumn(name = "carId")
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL)
 
     private RacingCar racingCar;
 

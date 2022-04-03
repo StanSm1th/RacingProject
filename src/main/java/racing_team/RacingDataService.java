@@ -11,6 +11,7 @@ import java.util.Scanner;
 @AllArgsConstructor
 @Entity
 public class RacingDataService {
+    public static final RacingCarRepository RACING_CAR_REPOSITORY = new RacingCarRepository();
     final String username = "root";
     final String password = "root";
     final String jdbcURL = "jdbc:mysql://localhost:3306/hibernate?serverTimezone=UTC";
@@ -37,7 +38,6 @@ public class RacingDataService {
 
                         RacingDataLoader.uploadRandomRacingDriverData(username, password, jdbcURL);
                         RacingDataLoader.uploadRandomRacingCarData(username,password,jdbcURL);
-
                         break;
 
                     case 'B':
@@ -45,13 +45,12 @@ public class RacingDataService {
                         break;
 
                     case 'C':
-
                         System.out.println();
                         RacingCar stanCar = RacingCar.builder()
                                 .carMake("audi").carModel("A4").carModelYear(2010).topSpeed(255).price(630000).build();
                         RacingDriver stan = RacingDriver.builder()
-                                .name("Stan").surname("Smith").dateOfBirth("25").nationality("American")
-                                .sponsor("red").salary(25000).racingCar(stanCar).build();
+                                .name("Stan").surname("Smith").dateOfBirth("07/07/1997").nationality("American")
+                                        .sponsor("Nike").salary(15000).racingCar(stanCar).build();
                         RACING_DRIVER_REPOSITORY.saveDriver(stan);
                         System.out.println();
                         break;
@@ -63,20 +62,19 @@ public class RacingDataService {
                         break;
 
                     case 'E':
-
                         printSubMenuAddNew();
                         char choice = scanner.next().charAt(0);
 
                         switch (choice) {
                             case 'A':
-                                System.out.println("add new driver");
+                                System.out.println("Add new driver: ");
                                 addNewRacingDriver(scanner);
                                 break;
+
                             case 'B':
-
-                                RacingDataLoader.uploadRandomRacingCarData(username, password, jdbcURL);
+                                System.out.println("Add new racing car: ");
+                                addNewRacingCar(scanner);
                                 break;
-
 
                             case 'D':
                                 System.out.println("Start again");
@@ -100,6 +98,21 @@ public class RacingDataService {
         }
     }
 
+    private void addNewRacingCar(Scanner scanner) {
+        RacingCar newRacingCar = new RacingCar();
+        System.out.println("Enter new racing cars make:");
+        newRacingCar.setCarMake(scanner.next());
+        System.out.println("Enter new racing cars model: ");
+        newRacingCar.setCarModel(scanner.next());
+        System.out.println("Enter new racing cars year of model make: ");
+        newRacingCar.setCarModelYear(scanner.nextInt());
+        System.out.println("Enter new racing cars top speed (/mph): ");
+        newRacingCar.setTopSpeed(scanner.nextInt());
+        System.out.println("Enter new racing cars price (USD $): ");
+        newRacingCar.setPrice(scanner.nextInt());
+        RACING_CAR_REPOSITORY.saveCar(newRacingCar);
+    }
+
     private void findRacingDriverById(Scanner scanner) {
         System.out.println("Enter drivers ID : ");
         RacingDriver racingDriverById = RACING_DRIVER_REPOSITORY.findDriverById(scanner.nextInt());
@@ -112,11 +125,13 @@ public class RacingDataService {
         System.out.println();
         System.out.println("Enter new drivers name: ");
         newRacingDriver.setName(scanner.next());
-        System.out.println("Enter new drivers age: ");
+        System.out.println("Enter new drivers surname: ");
+        newRacingDriver.setSurname(scanner.next());
+        System.out.println("Enter new drivers date of birth (dd/mm/yyyy): ");
         newRacingDriver.setDateOfBirth(scanner.next());
-        System.out.println("Enter new drivers nationality: ");
+        System.out.println("Enter new drivers outfit nationality (country): ");
         newRacingDriver.setNationality(scanner.next());
-        System.out.println("Enter new drivers outfit color: ");
+        System.out.println("Enter new drivers sponsor: ");
         newRacingDriver.setSponsor(scanner.next());
         System.out.println("Enter new drivers salary: ");
         newRacingDriver.setSalary(scanner.nextInt());
@@ -125,7 +140,7 @@ public class RacingDataService {
 
     private void printSubMenuAddNew() {
         System.out.println("A. add new driver:");
-        System.out.println("B. add random cars");
+        System.out.println("B. add new car");
         System.out.println("D. back to main :");
     }
 

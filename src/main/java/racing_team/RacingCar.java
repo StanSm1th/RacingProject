@@ -25,7 +25,7 @@ public class RacingCar {
     private Integer topSpeed;
     private Integer price;
 
-    @OneToOne(mappedBy = "racingCar", cascade = CascadeType.ALL, orphanRemoval = true, fetch=FetchType.LAZY)
+    @OneToOne(mappedBy = "racingCar")
     private RacingDriver racingDriver;
 
 

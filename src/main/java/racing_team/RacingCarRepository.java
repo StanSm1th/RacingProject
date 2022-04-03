@@ -7,11 +7,11 @@ public class RacingCarRepository {
 
     private static Session session = HibernateUtil.getSessionFactory().openSession();
 
-    public void saveCar(RacingCar car) {
-        Transaction transaction = session.beginTransaction();
-        session.persist(car);
-        transaction.commit();
-        System.out.println("Car was created: " + car);
+    public void saveCar(RacingCar newRacingCar) {
+        session.beginTransaction();
+        session.save(newRacingCar);
+        session.getTransaction().commit();
+        System.out.println("NEW driver added : " + newRacingCar);
     }
 
     public RacingCar findCarById(Integer id) {

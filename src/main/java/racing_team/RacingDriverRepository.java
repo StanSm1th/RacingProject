@@ -28,13 +28,6 @@ public class RacingDriverRepository extends RacingCarRepository {
         System.out.println("Driver was deleted: " + racingDriver);
     }
 
-    public void updateDriverOutfit(RacingDriver driver, Integer newSalary) {
-        Transaction transaction = session.beginTransaction();
-        driver.setSalary(newSalary);
-        transaction.commit();
-        System.out.println("Drivers outfit color changed to: " + driver.getSalary());
-    }
-
     public void updateDriverSalary(RacingDriver driver, Integer newSalary) {
         Transaction transaction = session.beginTransaction();
         driver.setSalary(newSalary);
