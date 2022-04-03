@@ -28,8 +28,6 @@ public class HibernateUtil {
 
                 configuration.setProperties(properties);
 
-
-
                 configuration.addAnnotatedClass(RacingDriver.class);
                 configuration.addAnnotatedClass(RacingCar.class);
 
@@ -47,13 +45,5 @@ public class HibernateUtil {
     public void closeSessionFactory() {
         sessionFactory.close();
     }
-
-
-
-
-
-
-
-
 
 }

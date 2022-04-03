@@ -28,6 +28,4 @@ public class RacingCar {
     @OneToOne(mappedBy = "racingCar")
     private RacingDriver racingDriver;
 
-
-
 }

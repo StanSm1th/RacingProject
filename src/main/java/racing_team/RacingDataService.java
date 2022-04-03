@@ -37,7 +37,7 @@ public class RacingDataService {
                     case 'A':
 
                         RacingDataLoader.uploadRandomRacingDriverData(username, password, jdbcURL);
-                        RacingDataLoader.uploadRandomRacingCarData(username,password,jdbcURL);
+                        RacingDataLoader.uploadRandomRacingCarData(username, password, jdbcURL);
                         break;
 
                     case 'B':
@@ -50,7 +50,7 @@ public class RacingDataService {
                                 .carMake("audi").carModel("A4").carModelYear(2010).topSpeed(255).price(630000).build();
                         RacingDriver stan = RacingDriver.builder()
                                 .name("Stan").surname("Smith").dateOfBirth("07/07/1997").nationality("American")
-                                        .sponsor("Nike").salary(15000).racingCar(stanCar).build();
+                                .sponsor("Nike").salary(15000).racingCar(stanCar).build();
                         RACING_DRIVER_REPOSITORY.saveDriver(stan);
                         System.out.println();
                         break;
@@ -83,7 +83,8 @@ public class RacingDataService {
 
                             default:
                                 System.out.println("Your choice is invalid!");
-                                System.out.println("Choose from available options and use CAPITAL letters: ");                        }
+                                System.out.println("Choose from available options and use CAPITAL letters: ");
+                        }
                         break;
 
                     case 'Z':

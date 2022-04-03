@@ -61,12 +61,9 @@ public class RacingDataLoader {
             connection.close();
             System.out.println("Random drivers has been inserted");
 
-
-
         } catch (Exception exception) {
             exception.printStackTrace();
         }
-
     }
 
     public static void uploadRandomRacingCarData(String username, String password, String jdbcURL) {
@@ -113,7 +110,5 @@ public class RacingDataLoader {
         } catch (SQLException | IOException exception) {
             exception.printStackTrace();
         }
-
-
     }
 }
