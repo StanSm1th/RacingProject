@@ -107,7 +107,7 @@ public class RacingDataLoader {
             statement.executeBatch();
             connection.commit();
             connection.close();
-            System.out.println("Random car has been inserted");
+            System.out.println("Random cars has been inserted");
 
 
         } catch (SQLException | IOException exception) {

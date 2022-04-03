@@ -140,7 +140,7 @@ public class RacingDataService {
     }
 
     private void printMenuSelection() {
-        System.out.println("A. Add new driver : ");
+        System.out.println("A. Upload random cars and drivers : ");
         System.out.println("B. Find driver by ID: ");
         System.out.println("C. Add preset driver : ");
         System.out.println("D. Choose driver to delete : ");
