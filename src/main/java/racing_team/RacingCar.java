@@ -12,18 +12,20 @@ import javax.persistence.*;
 @Data
 @Builder
 @Entity
+@Table(name = "racingcar")
 public class RacingCar {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer carId;
 
-    private String brand;
-    private String color;
+    private String carMake;
+    private String carModel;
+    private Integer carModelYear;
     private Integer topSpeed;
     private Integer price;
 
-    @OneToOne(mappedBy = "racingCar")
+    @OneToOne(mappedBy = "racingCar", cascade = CascadeType.ALL, orphanRemoval = true, fetch=FetchType.LAZY)
     private RacingDriver racingDriver;
 
 

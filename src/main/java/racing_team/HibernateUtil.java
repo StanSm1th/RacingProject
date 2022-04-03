@@ -29,8 +29,9 @@ public class HibernateUtil {
                 configuration.setProperties(properties);
 
 
-                configuration.addAnnotatedClass(RacingCar.class);
+
                 configuration.addAnnotatedClass(RacingDriver.class);
+                configuration.addAnnotatedClass(RacingCar.class);
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();

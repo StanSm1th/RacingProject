@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Data
 @Builder
 @Entity
+@Table(name = "racingdriver")
 public class RacingDriver {
 
     @Id
@@ -25,8 +26,9 @@ public class RacingDriver {
     private String sponsor;
     private Integer salary;
 
-    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "carId")
+    @OneToOne(fetch = FetchType.LAZY)
+
     private RacingCar racingCar;
 
 

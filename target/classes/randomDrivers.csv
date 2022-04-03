@@ -1,51 +1,6 @@
-id,dateOfBirth,name,surname,nationality,sponsor,salary
-1,1/3/1993,Malorie,Dymoke,China,,15658
-2,12/2/1992,Siffre,Brakewell,Philippines,Skilith,37249
-3,6/23/2000,Rees,MacGiolla,China,Browsecat,17346
-4,9/4/1990,Corri,Dreng,Portugal,,25566
-5,1/17/1987,Gery,Raigatt,Ireland,,48827
-6,2/22/1987,Phelia,Goldney,Macedonia,Zazio,36612
-7,8/24/1997,Gustie,Hadingham,Pakistan,InnoZ,35361
-8,3/13/1990,Dwayne,Skates,Peru,,23289
-9,1/2/1997,Adorne,Guinane,Greece,,40639
-10,12/24/1990,Jenica,Whitsey,Slovenia,Jayo,36709
-11,5/7/2000,Kristi,Faichnie,Tajikistan,,39299
-12,5/31/2004,Roberta,Sneller,Colombia,,34866
-13,7/3/1988,Hattie,Darby,Indonesia,,20391
-14,5/13/1999,Venus,Habble,France,,13975
-15,4/7/1995,Kristos,Abramamov,Poland,Brightdog,11023
-16,3/6/1996,Eddie,Altoft,Bolivia,,45082
-17,5/9/2003,Guendolen,St Clair,South Korea,,26709
-18,12/1/1998,Gavra,Wallenger,Nicaragua,Brainverse,22197
-19,4/25/1989,Sally,Mc-Kerley,Brazil,Gabvine,49109
-20,5/19/1987,Sisely,Bennie,Czech Republic,Eire,40683
-21,9/15/1987,Elsey,MacCoughan,France,Youspan,49924
-22,3/19/1999,Clarinda,Sucre,Brazil,Meedoo,38761
-23,8/27/2004,Ashton,Mattholie,France,Topiclounge,12771
-24,11/21/2004,Madel,Gayne,Panama,Yacero,35404
-25,4/28/1998,Emanuel,Loughton,Spain,Oyoyo,11210
-26,5/11/1987,Josh,Seager,Finland,Fiveclub,14254
-27,5/14/1996,Alastair,Leah,Costa Rica,Yodel,24970
-28,5/20/1996,Kata,Beveredge,United Kingdom,Demivee,43195
-29,7/22/1985,Bruce,Spadazzi,United States,Ntags,21348
-30,10/6/1993,Aeriel,Winborn,Indonesia,Leenti,13830
-31,12/6/1985,Avrit,Pietrusiak,Sweden,,18198
-32,11/13/1992,Guillaume,Stone,Lithuania,Twitternation,22067
-33,8/18/2003,Clarita,Kinch,Russia,Yabox,41422
-34,8/10/2000,Zacharie,Cogar,Palestinian Territory,,19503
-35,10/3/1987,Bernardine,MacAllester,France,Zava,26124
-36,9/8/1988,Arlyn,Faragan,China,Lazzy,30893
-37,7/30/2003,Neal,Baume,Angola,,39604
-38,6/18/1988,Merrilee,Dumbare,China,Bubbletube,35957
-39,1/16/2003,Gilbertina,Magister,Argentina,Layo,12647
-40,1/21/1987,Hildagarde,Vasichev,China,Katz,29566
-41,12/4/2002,Hilliard,Keynes,China,Dabjam,23228
-42,5/22/1991,Ana,Cartwight,Czech Republic,Trupe,21954
-43,5/27/2000,Luise,Rankin,Argentina,,37033
-44,3/2/1987,Marilee,Verriour,Brazil,,16458
-45,10/10/1992,Ida,Fritter,Japan,,19454
-46,10/31/1994,Arvin,Milsap,Thailand,Twitterwire,20251
-47,5/9/1996,Vanya,Scarce,Portugal,Dabfeed,20467
-48,3/21/1994,Sayers,Buie,Philippines,Zoomlounge,44684
-49,5/6/1997,Dominique,Farran,Indonesia,Feedfish,17522
-50,3/4/1994,Laughton,Pepper,Slovenia,Realmix,18173
+dateOfBirth,name,surname,nationality,sponsor,salary
+1/3/1993,Malorie,Dymoke,China,,15658
+12/2/1992,Siffre,Brakewell,Philippines,Skilith,37249
+6/23/2000,Rees,MacGiolla,China,Browsecat,17346
+9/4/1990,Corri,Dreng,Portugal,,25566
+1/17/1987,Gery,Raigatt,Ireland,,48827

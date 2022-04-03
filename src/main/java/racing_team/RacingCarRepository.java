@@ -18,11 +18,11 @@ public class RacingCarRepository {
         return session.find(RacingCar.class, id);
     }
 
-    public void updateCarColor(RacingCar car, String newCarColor) {
+    public void updateCarColor(RacingCar car, RacingDriver racingDriver) {
         Transaction transaction = session.beginTransaction();
-        car.setColor(newCarColor);
+        car.setRacingDriver(racingDriver);
         transaction.commit();
-        System.out.println("Car color changed to: " + car.getColor());
+        System.out.println("Car color changed to: " + car.getRacingDriver());
     }
 
 
@@ -32,13 +32,7 @@ public class RacingCarRepository {
         transaction.commit();
         System.out.println("Racing car was deleted: " + car);
 
-        RacingCarRepository racingCarRepository = new RacingCarRepository();
-        RacingCar bmw = new RacingCar();
-        bmw.setBrand("BMW");
-        bmw.setColor("white");
-        bmw.setPrice(45000);
-        bmw.setTopSpeed(260);
-        racingCarRepository.saveCar(bmw);
+
 
 
 

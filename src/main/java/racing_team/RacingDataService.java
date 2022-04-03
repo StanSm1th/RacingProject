@@ -2,17 +2,18 @@ package racing_team;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.json.simple.JSONArray;
 
 import javax.persistence.Entity;
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.Scanner;
 
 @Data
 @AllArgsConstructor
 @Entity
 public class RacingDataService {
+    final String username = "root";
+    final String password = "root";
+    final String jdbcURL = "jdbc:mysql://localhost:3306/hibernate?serverTimezone=UTC";
 
     public static final RacingDriverRepository RACING_DRIVER_REPOSITORY = new RacingDriverRepository();
     private String userName;
@@ -33,10 +34,10 @@ public class RacingDataService {
 
                 switch (selection) {
                     case 'A':
-                        final String username = "root";
-                        final String password = "root";
-                        final String jdbcURL = "jdbc:mysql://localhost:3306/hibernate?serverTimezone=UTC";
+
                         RacingDataLoader.uploadRandomRacingDriverData(username, password, jdbcURL);
+                        RacingDataLoader.uploadRandomRacingCarData(username,password,jdbcURL);
+
                         break;
 
                     case 'B':
@@ -47,7 +48,7 @@ public class RacingDataService {
 
                         System.out.println();
                         RacingCar stanCar = RacingCar.builder()
-                                .brand("audi").color("black").topSpeed(235).price(36000).build();
+                                .carMake("audi").carModel("A4").carModelYear(2010).topSpeed(255).price(630000).build();
                         RacingDriver stan = RacingDriver.builder()
                                 .name("Stan").surname("Smith").dateOfBirth("25").nationality("American")
                                 .sponsor("red").salary(25000).racingCar(stanCar).build();
@@ -72,8 +73,9 @@ public class RacingDataService {
                                 addNewRacingDriver(scanner);
                                 break;
                             case 'B':
-                                System.out.println("Add new car");
-                                RacingCar racingCar = new RacingCar();
+
+                                RacingDataLoader.uploadRandomRacingCarData(username, password, jdbcURL);
+                                break;
 
 
                             case 'D':
@@ -108,8 +110,6 @@ public class RacingDataService {
     private void addNewRacingDriver(Scanner scanner) {
         RacingDriver newRacingDriver = new RacingDriver();
         System.out.println();
-//                        System.out.println("Enter new drivers ID: ");
-//                        newRacingDriver.setDriverId(scanner.nextInt());
         System.out.println("Enter new drivers name: ");
         newRacingDriver.setName(scanner.next());
         System.out.println("Enter new drivers age: ");
@@ -125,6 +125,7 @@ public class RacingDataService {
 
     private void printSubMenuAddNew() {
         System.out.println("A. add new driver:");
+        System.out.println("B. add random cars");
         System.out.println("D. back to main :");
     }
 
