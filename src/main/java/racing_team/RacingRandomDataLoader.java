@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import static java.lang.Integer.parseInt;
 
 @Entity
-public class RacingDataLoader {
+public class RacingRandomDataLoader {
     private static Session session = HibernateUtil.getSessionFactory().openSession();
 
     public static void uploadRandomRacingDriverData(String username, String password, String jdbcURL) {

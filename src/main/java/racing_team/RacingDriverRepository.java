@@ -6,7 +6,7 @@ import org.hibernate.Transaction;
 import javax.persistence.Entity;
 
 @Entity
-public class RacingDriverRepository extends RacingCarRepository {
+public class RacingDriverRepository {
 
     private static Session session = HibernateUtil.getSessionFactory().openSession();
 
@@ -33,7 +33,7 @@ public class RacingDriverRepository extends RacingCarRepository {
         driver.setSalary(newSalary);
         transaction.commit();
         System.out.println("Drivers new salary set to: " + driver.getSalary());
-    }
 
+    }
 
 }

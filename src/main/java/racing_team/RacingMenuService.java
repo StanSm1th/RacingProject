@@ -10,7 +10,7 @@ import java.util.Scanner;
 @Data
 @AllArgsConstructor
 @Entity
-public class RacingDataService {
+public class RacingMenuService {
     public static final RacingCarRepository RACING_CAR_REPOSITORY = new RacingCarRepository();
     final String username = "root";
     final String password = "root";
@@ -20,7 +20,7 @@ public class RacingDataService {
     private String userName;
     private int userId;
 
-    public void showMenu(RacingDataUser racingDataUser) throws SQLException {
+    public void showMenu(RacingMenuUser racingDataUser) throws SQLException {
 
         boolean isAuthenticated = authenticate(racingDataUser);
 
@@ -36,8 +36,8 @@ public class RacingDataService {
                 switch (selection) {
                     case 'A':
 
-                        RacingDataLoader.uploadRandomRacingDriverData(username, password, jdbcURL);
-                        RacingDataLoader.uploadRandomRacingCarData(username, password, jdbcURL);
+                        RacingRandomDataLoader.uploadRandomRacingDriverData(username, password, jdbcURL);
+                        RacingRandomDataLoader.uploadRandomRacingCarData(username, password, jdbcURL);
                         break;
 
                     case 'B':
@@ -173,7 +173,7 @@ public class RacingDataService {
         System.out.println();
     }
 
-    private boolean authenticate(RacingDataUser racingDataUser) {
+    private boolean authenticate(RacingMenuUser racingDataUser) {
         System.out.println("Enter password:");
         Scanner scanner = new Scanner(System.in);
         int password = scanner.nextInt();
