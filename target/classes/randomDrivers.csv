@@ -1,6 +1,6 @@
-dateOfBirth,name,surname,nationality,sponsor,salary
-1/3/1993,Malorie,Dymoke,China,,15658
-12/2/1992,Siffre,Brakewell,Philippines,Skilith,37249
-6/23/2000,Rees,MacGiolla,China,Browsecat,17346
-9/4/1990,Corri,Dreng,Portugal,,25566
-1/17/1987,Gery,Raigatt,Ireland,,48827
+dateOfBirth,name,surname,nationality,sponsor,salary,carId
+1/3/1993,Malorie,Dymoke,China,,15658,1
+12/2/1992,Siffre,Brakewell,Philippines,Skilith,37249,2
+6/23/2000,Rees,MacGiolla,China,Browsecat,17346,3
+9/4/1990,Corri,Dreng,Portugal,,25566,4
+1/17/1987,Gery,Raigatt,Ireland,,48827,5

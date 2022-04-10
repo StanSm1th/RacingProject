@@ -1,23 +1,25 @@
-package racing_team;
+package racing_team.repositories;
 
 import org.hibernate.Session;
+import racing_team.entities.Car;
+import racing_team.utils.HibernateUtil;
 
-public class RacingCarRepository {
+public class CarRepository {
 
     private static Session session = HibernateUtil.getSessionFactory().openSession();
 
-    public void saveCar(RacingCar newRacingCar) {
+    public void saveCar(Car newRacingCar) {
         session.beginTransaction();
         session.save(newRacingCar);
         session.getTransaction().commit();
         System.out.println("NEW racing car added : " + newRacingCar);
     }
 
-    public RacingCar findCarById(Integer id) {
-        return session.find(RacingCar.class, id);
+    public Car findCarById(Integer id) {
+        return session.find(Car.class, id);
     }
 
-    public void deleteCarById(RacingCar racingCar) {
+    public void deleteCarById(Car racingCar) {
         session.beginTransaction();
         session.delete(racingCar);
         session.getTransaction().commit();

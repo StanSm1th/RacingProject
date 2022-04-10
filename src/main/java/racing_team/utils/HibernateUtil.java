@@ -1,10 +1,14 @@
-package racing_team;
+package racing_team.utils;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
+import racing_team.entities.Car;
+import racing_team.entities.Driver;
+import racing_team.entities.Team;
+import racing_team.entities.Track;
 
 import java.util.Properties;
 
@@ -28,8 +32,11 @@ public class HibernateUtil {
 
                 configuration.setProperties(properties);
 
-                configuration.addAnnotatedClass(RacingDriver.class);
-                configuration.addAnnotatedClass(RacingCar.class);
+                configuration.addAnnotatedClass(Driver.class);
+                configuration.addAnnotatedClass(Car.class);
+                configuration.addAnnotatedClass(Team.class);
+                configuration.addAnnotatedClass(Track.class);
+
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();

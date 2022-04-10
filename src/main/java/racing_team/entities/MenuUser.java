@@ -1,11 +1,11 @@
-package racing_team;
+package racing_team.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @AllArgsConstructor
 @Data
-public class RacingMenuUser {
+public class MenuUser {
 
     private int userPassword;
     private String userName;

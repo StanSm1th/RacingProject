@@ -1,4 +1,4 @@
-package racing_team;
+package racing_team.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table(name = "racingcar")
-public class RacingCar {
+public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +26,7 @@ public class RacingCar {
     private Integer price;
 
     @OneToOne(mappedBy = "racingCar")
-    private RacingDriver racingDriver;
+
+    private Driver racingDriver;
 
 }
