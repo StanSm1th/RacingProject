@@ -9,7 +9,6 @@ import racing_team.entities.User;
 import racing_team.repositories.CarRepository;
 import racing_team.repositories.DriverRepository;
 //import racing_team.toJSON.DataBaseToJson;
-import racing_team.toJSON.DataToJSON;
 import racing_team.utils.HibernateUtil;
 
 import javax.persistence.Entity;
