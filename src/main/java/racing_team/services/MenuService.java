@@ -48,54 +48,33 @@ public class MenuService {
                 selection = printChoiceRequest();
 
                 switch (selection) {
-                    case 'A': addRandomCarsAndDrivers();
-                        break;
-                    case 'B': findRacingDriverById();
-                        break;
-                    case 'C': addPresetDriver();
-                        break;
-                    case 'D': deleteDriverById();
-                        break;
-
-                    case 'E':
+                    case 'A' -> addRandomCarsAndDrivers();
+                    case 'B' -> findRacingDriverById();
+                    case 'C' -> addPresetDriver();
+                    case 'D' -> deleteDriverById();
+                    case 'E' -> {
                         printSubMenuAddNew();
                         char choice = scanner.next().charAt(0);
-
                         switch (choice) {
-                            case 'A': addNewRacingDriver();
-                                break;
-                            case 'B': addNewRacingCar();
-                                break;
-                            case 'C':
-                                System.out.println("data to json");
-                                DataToJSON.RetrieveData();
-                                break;
+                            case 'A' -> addNewRacingDriver();
+                            case 'B' -> addNewRacingCar();
+                            case 'C' -> DataToJSON.RetrieveData();
+                            case 'D' -> System.out.println("enter drivers ID: ");
+                            // update salary
+                            case 'Z' -> System.out.println("MAIN MENU");
 
-                            case 'D':
-                                System.out.println("read data");
-                                //DataBaseToJson.readJsonSimpleDemo();
-                                break;
-
-                            case 'Z':
-                                System.out.println("MAIN MENU");
-                                // nezinau tiksliai del sito
-                                break;
-
-
-
-                            default:
+                            // nezinau tiksliai del sito
+                            default -> {
                                 System.out.println("Your choice is invalid!");
                                 System.out.println("Choose from available options and use CAPITAL letters: ");
+                            }
                         }
-                        break;
-
-                    case 'Z':
-                        System.out.println("Thank you, have a good day!");
-                        break;
-
-                    default:
+                    }
+                    case 'Z' -> System.out.println("Thank you, have a good day!");
+                    default -> {
                         System.out.println("Your choice is invalid!");
                         System.out.println("Choose from available options and use CAPITAL letters: ");
+                    }
                 }
             } while (selection != 'Z');
         }
@@ -178,7 +157,6 @@ public class MenuService {
         System.out.println("Enter new racing cars price (USD $): ");
         newRacingCar.setPrice(scanner.nextInt());
         racingCarRepository.saveCar(newRacingCar);
-
         newRacingDriver.setCar(newRacingCar);
         racingDriverRepository.saveDriver(newRacingDriver);
     }
@@ -214,10 +192,8 @@ public class MenuService {
 
     private void printGreeting() {
         System.out.println("+--------------------------------------------+");
-        System.out.println("|    WELCOME TO RACING "+userName.toUpperCase(Locale.ROOT)+" ! ");
+        System.out.println("    WELCOME TO RACING "+userName.toUpperCase(Locale.ROOT)+" ! ");
         System.out.println("+--------------------------------------------+");
-//        System.out.println("Your user ID is: " + userId);
-       // System.out.println("Your username is: " + userName);
         System.out.println();
     }
 
@@ -226,7 +202,6 @@ public class MenuService {
         System.out.println("Enter your user name:");
         setUserName(scanner.next());
         System.out.println("Enter password:");
-        //Scanner scanner = new Scanner(System.in);
         int password = scanner.nextInt();
         return password == racingMenuUser.getUserPassword();
     }

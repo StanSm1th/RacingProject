@@ -31,6 +31,7 @@ public class DriverRepository {
     }
 
     public void updateDriverSalary(Driver driver, Integer newSalary) {
+        findDriverById(driver.getDriverId());
         Transaction transaction = session.beginTransaction();
         driver.setSalary(newSalary);
         transaction.commit();

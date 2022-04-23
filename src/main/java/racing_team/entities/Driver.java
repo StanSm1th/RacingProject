@@ -35,21 +35,6 @@ public class Driver {
     private Team team;
 
 
-
-//    @Override
-//    public String toString() {
-//        return "RacingDriver{" +
-//                "driverId=" + driverId +
-//                ", name='" + name + '\'' +
-//                ", surname='" + surname + '\'' +
-//                ", dateOfBirth='" + dateOfBirth + '\'' +
-//                ", nationality='" + nationality + '\'' +
-//                ", sponsor='" + sponsor + '\'' +
-//                ", salary=" + salary +
-//                '}';
-//    }
-
-
     @Override
     public String toString() {
         return "Driver{" +
