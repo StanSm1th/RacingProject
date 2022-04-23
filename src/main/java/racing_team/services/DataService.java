@@ -1,6 +1,6 @@
 package racing_team.services;
 
-import racing_team.utils.DatabaseQueries;
+import racing_team.utils.DataQueries;
 
 import javax.persistence.Entity;
 import java.io.BufferedReader;
@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import static java.lang.Integer.parseInt;
 
 @Entity
-public class RandomDataLoader {
+public class DataService {
 
 
     public static void uploadRandomDriverData(String username, String password, String jdbcURL) {
@@ -26,7 +26,7 @@ public class RandomDataLoader {
 
             connection.setAutoCommit(false);
 
-            PreparedStatement statement = connection.prepareStatement(DatabaseQueries.INSERT_SAMPLE_DRIVERS);
+            PreparedStatement statement = connection.prepareStatement(DataQueries.INSERT_SAMPLE_DRIVERS);
 
             BufferedReader driversReader = new BufferedReader(new FileReader("src/main/resources/randomDrivers.csv"));
 
@@ -75,7 +75,7 @@ public class RandomDataLoader {
             connection = DriverManager.getConnection(jdbcURL, username, password);
             connection.setAutoCommit(false);
 
-            PreparedStatement statement = connection.prepareStatement(DatabaseQueries.INSERT_SAMPLE_CARS);
+            PreparedStatement statement = connection.prepareStatement(DataQueries.INSERT_SAMPLE_CARS);
             BufferedReader carsReader = new BufferedReader(new FileReader("src/main/resources/randomCars.csv"));
             String lineText = null;
             int count = 0;

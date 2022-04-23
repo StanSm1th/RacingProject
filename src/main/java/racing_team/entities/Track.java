@@ -1,8 +1,12 @@
 package racing_team.entities;
 
 import lombok.Data;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -17,7 +21,9 @@ public class Track {
     private Float recordLapTime;
     private Integer seatCapacity;
 
-//    @ManyToMany
-//    private Team team;
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinTable(name = "track")
+    @Fetch(value = FetchMode.SUBSELECT)
+    private List<Team> teams = new ArrayList<>();
 
 }

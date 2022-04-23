@@ -1,5 +1,5 @@
 {
-  "Players_data": [
+  "Drivers_data": [
     {
       "sponsor": "",
       "driverId": 1,
@@ -10,17 +10,6 @@
       "salary": 15658,
       "team_teamId": 0,
       "carId": 1
-    },
-    {
-      "sponsor": "Skilith",
-      "driverId": 2,
-      "nationality": "Philippines",
-      "surname": "Brakewell",
-      "name": "Siffre",
-      "dateOfBirth": "12\/2\/1992",
-      "salary": 37249,
-      "team_teamId": 0,
-      "carId": 2
     },
     {
       "sponsor": "Browsecat",

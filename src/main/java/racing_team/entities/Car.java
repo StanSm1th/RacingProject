@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Data
 @Builder
 @Entity
-@Table(name = "racingcar")
+@Table(name = "car")
 public class Car {
 
     @Id
@@ -25,7 +25,7 @@ public class Car {
     private Integer topSpeed;
     private Integer price;
 
-    @OneToOne(mappedBy = "racingCar")
+    @OneToOne(mappedBy = "car")
 
     private Driver racingDriver;
 

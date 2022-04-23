@@ -9,9 +9,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class DataBaseToJson {
+public class DataToJSON {
 
-   public static ResultSet RetrieveData() throws Exception {
+   public static void RetrieveData() throws Exception {
 
 
       //Registering the Driver
@@ -28,7 +28,7 @@ public class DataBaseToJson {
       //Creating a json array
       JSONArray array = new JSONArray();
       //ResultSet rs = RetrieveData();
-      //Inserting ResutlSet data into the json object
+      //Inserting ResultSet data into the json object
       while(rs.next()) {
          JSONObject record = new JSONObject();
          //Inserting key-value pairs into the json object
@@ -44,18 +44,17 @@ public class DataBaseToJson {
 
          array.add(record);
       }
-      jsonObject.put("Players_data", array);
+      jsonObject.put("Drivers_data", array);
       try {
          FileWriter file = new FileWriter("src/main/resources/DBoutput.json");
          file.write(jsonObject.toJSONString());
          file.close();
-      } catch (IOException e) {
+      } catch (IOException exception) {
          // TODO Auto-generated catch block
-         e.printStackTrace();
+         exception.printStackTrace();
       }
 
       System.out.println("JSON file created......");
-      return rs;
 
    }
 

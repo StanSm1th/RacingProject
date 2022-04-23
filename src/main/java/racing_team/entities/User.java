@@ -5,9 +5,10 @@ import lombok.Data;
 
 @AllArgsConstructor
 @Data
-public class MenuUser {
+public class User {
 
     private int userPassword;
     private String userName;
+
 
 }

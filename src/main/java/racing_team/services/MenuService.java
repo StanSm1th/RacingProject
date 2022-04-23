@@ -5,14 +5,15 @@ import lombok.Data;
 import org.hibernate.Session;
 import racing_team.entities.Car;
 import racing_team.entities.Driver;
-import racing_team.entities.MenuUser;
+import racing_team.entities.User;
 import racing_team.repositories.CarRepository;
 import racing_team.repositories.DriverRepository;
 //import racing_team.toJSON.DataBaseToJson;
-import racing_team.toJSON.DataBaseToJson;
+import racing_team.toJSON.DataToJSON;
 import racing_team.utils.HibernateUtil;
 
 import javax.persistence.Entity;
+import java.util.Locale;
 import java.util.Scanner;
 
 @Data
@@ -32,12 +33,12 @@ public class MenuService {
 
 
     private String userName;
-    private int userId;
+//    private int userId;
 
 
-    public void showMenu(MenuUser racingDataUser) throws Exception {
+    public void showMenu() throws Exception {
 
-        boolean isAuthenticated = authenticate(racingDataUser);
+        boolean isAuthenticated = authenticate();
 
         if (isAuthenticated) {
             char selection;
@@ -48,27 +49,13 @@ public class MenuService {
                 selection = printChoiceRequest();
 
                 switch (selection) {
-                    case 'A':
-
-                        RandomDataLoader.uploadRandomCarData(username, password, jdbcURL);
-                        RandomDataLoader.uploadRandomDriverData(username, password, jdbcURL);
+                    case 'A': addRandomCarsAndDrivers();
                         break;
-
-                    case 'B':
-
-                        findRacingDriverById();
+                    case 'B': findRacingDriverById();
                         break;
-
-                    case 'C':
-                        addPresetDriver();
+                    case 'C': addPresetDriver();
                         break;
-
-
-
-                    case 'D':
-                        System.out.println("Enter drivers ID who you wish to delete: ");
-                        Driver racingDriverById = racingDriverRepository.findDriverById(scanner.nextInt());
-                        racingDriverRepository.deleteDriverByID(racingDriverById);
+                    case 'D': deleteDriverById();
                         break;
 
                     case 'E':
@@ -76,18 +63,13 @@ public class MenuService {
                         char choice = scanner.next().charAt(0);
 
                         switch (choice) {
-                            case 'A':
-                                System.out.println("Add new driver: ");
-                                addNewRacingDriver();
+                            case 'A': addNewRacingDriver();
                                 break;
-
-                            case 'B':
-                                System.out.println("Add new racing car: ");
-                                addNewRacingCar();
+                            case 'B': addNewRacingCar();
                                 break;
                             case 'C':
                                 System.out.println("data to json");
-                                DataBaseToJson.RetrieveData();
+                                DataToJSON.RetrieveData();
                                 break;
 
                             case 'D':
@@ -95,8 +77,8 @@ public class MenuService {
                                 //DataBaseToJson.readJsonSimpleDemo();
                                 break;
 
-                            case 'X':
-                                System.out.println("Start again");
+                            case 'Z':
+                                System.out.println("MAIN MENU");
                                 // nezinau tiksliai del sito
                                 break;
 
@@ -120,18 +102,31 @@ public class MenuService {
         }
     }
 
+    private void deleteDriverById() {
+        System.out.println("Enter drivers ID who you wish to delete: ");
+        Driver racingDriverById = racingDriverRepository.findDriverById(scanner.nextInt());
+        racingDriverRepository.deleteDriverByID(racingDriverById);
+    }
+
+    private void addRandomCarsAndDrivers() {
+        DataService.uploadRandomCarData(username, password, jdbcURL);
+        DataService.uploadRandomDriverData(username, password, jdbcURL);
+    }
+
     private void addPresetDriver() {
         System.out.println();
         Car stanCar = Car.builder()
                 .carMake("audi").carModel("A4").carModelYear(2010).topSpeed(255).price(630000).build();
         Driver stan = Driver.builder()
                 .name("Stan").surname("Smith").dateOfBirth("07/07/1997").nationality("American")
-                .sponsor("Nike").salary(15000).racingCar(stanCar).build();
+                .sponsor("Nike").salary(15000).car(stanCar).build();
         racingDriverRepository.saveDriver(stan);
         System.out.println();
     }
 
     private void addNewRacingCar() {
+        System.out.println("Add new racing car: ");
+        System.out.println("Add new driver: ");
         Car newRacingCar = new Car();
         System.out.println("Enter new racing cars make:");
         newRacingCar.setCarMake(scanner.next());
@@ -185,16 +180,16 @@ public class MenuService {
         newRacingCar.setPrice(scanner.nextInt());
         racingCarRepository.saveCar(newRacingCar);
 
-        newRacingDriver.setRacingCar(newRacingCar);
+        newRacingDriver.setCar(newRacingCar);
         racingDriverRepository.saveDriver(newRacingDriver);
     }
 
     private void printSubMenuAddNew() {
-        System.out.println("A. add new driver:");
-        System.out.println("B. add new car");
-        System.out.println("C: data to JSON: ");
-        System.out.println("D: read data: ");
-        System.out.println("X. back to main :");
+        System.out.println("A. Add new driver: ");
+        System.out.println("B. Add new car: ");
+        System.out.println("C: Data to JSON: ");
+        System.out.println("D: ------------- : ");
+        System.out.println("Z. back to main : ");
 
     }
 
@@ -219,19 +214,22 @@ public class MenuService {
     }
 
     private void printGreeting() {
-        System.out.println("+----------------------------+");
-        System.out.println("|    WELCOME TO RACING!      |");
-        System.out.println("+----------------------------+");
-        System.out.println("Your user ID is: " + userId);
-        System.out.println("Your username is: " + userName);
+        System.out.println("+--------------------------------------------+");
+        System.out.println("|    WELCOME TO RACING "+userName.toUpperCase(Locale.ROOT)+" ! ");
+        System.out.println("+--------------------------------------------+");
+//        System.out.println("Your user ID is: " + userId);
+       // System.out.println("Your username is: " + userName);
         System.out.println();
     }
 
-    private boolean authenticate(MenuUser racingDataUser) {
+    private boolean authenticate() {
+        User racingMenuUser = new User(1111, "");
+        System.out.println("Enter your user name:");
+        setUserName(scanner.next());
         System.out.println("Enter password:");
-        Scanner scanner = new Scanner(System.in);
+        //Scanner scanner = new Scanner(System.in);
         int password = scanner.nextInt();
-        return password == racingDataUser.getUserPassword();
+        return password == racingMenuUser.getUserPassword();
     }
 
 

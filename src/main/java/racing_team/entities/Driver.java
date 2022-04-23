@@ -28,7 +28,7 @@ public class Driver {
 
     @JoinColumn(name = "carId")
     @OneToOne(cascade = CascadeType.ALL)
-    private Car racingCar;
+    private Car car;
 
     //@JoinColumn(name = "teamId")
     @ManyToOne
